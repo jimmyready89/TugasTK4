@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        Daftar Hak Akses
+        Daftar Pengguna
         <a href="./index.php?id=0" class="btn btn-sm btn-primary" style="float:right">
             Tambah
         </a>

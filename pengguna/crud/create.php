@@ -13,7 +13,7 @@ try {
 } catch (\Throwable $th) {
     ?>
         <p class="text-danger">
-            Gagal Tambah Hak Akses
+            Gagal Tambah Pengguna
         </p>
     <?php
 }

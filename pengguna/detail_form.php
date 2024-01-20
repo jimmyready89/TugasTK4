@@ -97,7 +97,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="Password">Password Baru</label>
-                                    <input required type="text" class="form-control" id="Password" name="Password" placeholder="Nama Hak Akses" value="">
+                                    <input required type="text" class="form-control" id="Password" name="Password" placeholder="Password" value="">
                                 </div>
                             </div>
                         </div>

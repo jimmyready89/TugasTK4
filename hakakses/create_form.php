@@ -1,6 +1,6 @@
 <?php
     if (isset($_POST["NamaAkses"])) {
-        include "./crud/create.php";
+        include "./controller/create.php";
     }
 ?>
 <div class="card">

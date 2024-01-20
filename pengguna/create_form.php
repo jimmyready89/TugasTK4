@@ -1,9 +1,9 @@
 <?php
     if (isset($_POST["NamaPengguna"])) {
-        include "./crud/create.php";
+        include "./controller/create.php";
     }
 
-    include "../hakakses/hakakses_pdo.php";
+    include "../class/hakakses_pdo.php";
     $HakAksesPDO = new HakAkses($connectionPDO);
 
     $HakAksesList = $HakAksesPDO->getList();

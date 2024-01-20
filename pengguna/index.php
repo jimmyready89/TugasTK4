@@ -28,7 +28,7 @@
                 include "detail_form.php";
             }else{
                 if (isset($_POST["DelateIdPengguna"])) {
-                    include "./crud/delete.php";
+                    include "./controller/delete.php";
                 }
 
                 include "tabel.php";

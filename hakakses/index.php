@@ -2,7 +2,7 @@
     include "../session_start.php";
     include "../session_autentiocation.php";
     include "../database_connection.php";
-    include "HakAkses_pdo.php";
+    include "../Class/HakAkses_pdo.php";
 
     $HakAksesPDO = new HakAkses($connectionPDO);
 ?>
@@ -28,7 +28,7 @@
                 include "detail_form.php";
             }else{
                 if (isset($_POST["DelateIdAkses"])) {
-                    include "./crud/delete.php";
+                    include "./controller/delete.php";
                 }
 
                 include "tabel.php";

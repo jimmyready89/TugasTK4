@@ -1,6 +1,6 @@
 <?php
     if (isset($_POST["IdAkses"])) {
-        include "./crud/update.php";
+        include "./controller/update.php";
     }
     $HakAkses = $HakAksesPDO->findById($id);
 ?>

@@ -18,6 +18,15 @@
         <li class="nav-item">
             <a class="nav-link" href="./index.php">pengguna</a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Transaksi
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="../pembelian/index.php">Pembelian</a></li>
+            <li><a class="dropdown-item" href="../penjualan/index.php">Penjualan</a></li>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
             <li>

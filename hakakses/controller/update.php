@@ -1,6 +1,6 @@
 <?php
 try {
-    $HakAksesPDO->getIdAkses($_POST["IdAkses"]);
+    $HakAksesPDO->setIdAkses($_POST["IdAkses"]);
     $HakAksesPDO->setNamaAkses($_POST["NamaAkses"]);
     $HakAksesPDO->setKeterangan($_POST["Keterangan"]);
     $HakAksesPDO->update();

@@ -11,10 +11,10 @@ include "session_start.php";
     <link href="./css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <?php
+        include "navbar.php";
+    ?>
     <div class="container">
-        <?php
-            include "navbar.php";
-        ?>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>

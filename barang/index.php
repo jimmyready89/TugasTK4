@@ -2,9 +2,9 @@
     include "../session_start.php";
     include "../session_autentiocation.php";
     include "../database_connection.php";
-    include "../class/Pengguna_pdo.php";
+    include "../Class/barang_pdo.php";
 
-    $PenggunaPDO = new Pengguna($connectionPDO);
+    $BarangPDO = new Barang($connectionPDO);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,7 @@
             } elseif ($id > 0) {
                 include "detail_form.php";
             }else{
-                if (isset($_POST["DelateIdPengguna"])) {
+                if (isset($_POST["DelateIdBarang"])) {
                     include "./controller/delete.php";
                 }
 

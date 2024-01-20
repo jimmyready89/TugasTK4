@@ -10,13 +10,13 @@
             <a class="nav-link active" href="../index.php">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./index.php">Hak Akses</a>
+            <a class="nav-link" href="../hakakses/index.php">Hak Akses</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="../barang/index.php">Barang</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../pengguna/index.php">pengguna</a>
+            <a class="nav-link" href="../pelanggan/index.php">Pelanggan</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,6 +25,15 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="../pembelian/index.php">Pembelian</a></li>
             <li><a class="dropdown-item" href="../penjualan/index.php">Penjualan</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Kontak
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="../supplier/index.php">supplier</a></li>
+            <li><a class="dropdown-item" href="../pelanggan/index.php">Pelanggan</a></li>
           </ul>
         </li>
       </ul>

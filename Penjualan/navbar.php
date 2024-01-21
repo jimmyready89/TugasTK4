@@ -38,15 +38,15 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="#">
-                    <?php echo $_SESSION['nama'] ?? "" ?>
-                </a>
-            </li>
-            <li>
-                <a href="./logout.php">Log out</a>
-            </li>
-        </ul>
+        <li>
+          <a href="#">
+            <?php echo $_SESSION['nama'] ?? "" ?>
+          </a>
+        </li>
+        <li>
+          <a href="./logout.php">Log out</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

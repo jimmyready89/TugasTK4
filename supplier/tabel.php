@@ -27,13 +27,13 @@
                                                 <?= $key + 1 ?>
                                             </td>
                                             <td>
-                                                <?= $data["Namapelanggan"] ?>
+                                                <?= $data["NamaSupplier"] ?>
                                             </td>
                                             <td>
-                                                <?= $data["NoHppelanggan"] ?>
+                                                <?= $data["NoHpSupplier"] ?>
                                             </td>
                                             <td>
-                                                <a href="./index.php?id=<?= $data["Idpelanggan"] ?>">
+                                                <a href="./index.php?id=<?= $data["IdSupplier"] ?>">
                                                     <button type="button" class="btn btn-primary">
                                                         <span class="glyphicon glyphicon-pencil">
                                                             Edit
@@ -43,7 +43,7 @@
                                             </td>
                                             <td>
                                                 <form action="index.php" method="post">
-                                                    <input type="hidden" name="DelateIdSupplier" value="<?= $data["Idpelanggan"] ?>">
+                                                    <input type="hidden" name="DelateIdSupplier" value="<?= $data["IdSupplier"] ?>">
                                                     <button onclick="return confirm('Hapus data ini?')" type="submit" class="btn btn-danger">
                                                         <span class="glyphicon glyphicon-trash">
                                                             Delete

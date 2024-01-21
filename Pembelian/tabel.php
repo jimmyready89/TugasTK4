@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        Daftar Pelanggan
+        Daftar Pembelian
         <a href="./index.php?id=0" class="btn btn-sm btn-primary" style="float:right">
             Tambah
         </a>
@@ -12,28 +12,32 @@
                     <table class="table">
                         <tr>
                             <th></th>
-                            <th>Nama Pelanggan</th>
-                            <th>No Hp</th>
+                            <th>Nama Barang</th>
+                            <th>Jumlah Pembelian</th>
+                            <th>Harga Beli</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                             <?php
-                                $DaftarPelanggan = $PelangganPDO->getList();
+                                $DaftarPembelian = $PembelianPDO->getList();
 
-                                foreach ($DaftarPelanggan as $key => $data) {
+                                foreach ($DaftarPembelian as $key => $data) {
                                     ?>
                                         <tr>
                                             <td>
                                                 <?= $key + 1 ?>
                                             </td>
                                             <td>
-                                                <?= $data["NamaPelanggan"] ?>
+                                                <?= $data["NamaBarang"] ?>
                                             </td>
                                             <td>
-                                                <?= $data["NoHpPelanggan"] ?>
+                                                <?= $data["JumlahPembelian"] ?>
                                             </td>
                                             <td>
-                                                <a href="./index.php?id=<?= $data["IdPelanggan"] ?>">
+                                                <?= $data["HargaBeli"] ?>
+                                            </td>
+                                            <td>
+                                                <a href="./index.php?id=<?= $data["IdPembelian"] ?>">
                                                     <button type="button" class="btn btn-primary">
                                                         <span class="glyphicon glyphicon-pencil">
                                                             Edit
@@ -43,7 +47,7 @@
                                             </td>
                                             <td>
                                                 <form action="index.php" method="post">
-                                                    <input type="hidden" name="DelateIdPelanggan" value="<?= $data["IdPelanggan"] ?>">
+                                                    <input type="hidden" name="DelateIdPembelian" value="<?= $data["IdPembelian"] ?>">
                                                     <button onclick="return confirm('Hapus data ini?')" type="submit" class="btn btn-danger">
                                                         <span class="glyphicon glyphicon-trash">
                                                             Delete

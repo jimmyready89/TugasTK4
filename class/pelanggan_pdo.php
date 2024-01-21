@@ -1,9 +1,9 @@
 <?php
-class pelanggan {
-    private $Idpelanggan;
-    private $Namapelanggan;
-    private $Alamatpelanggan;
-    private $NoHppelanggan;
+class Pelanggan {
+    private $IdPelanggan;
+    private $NamaPelanggan;
+    private $AlamatPelanggan;
+    private $NoHpPelanggan;
     
     private $conn;
 
@@ -11,45 +11,45 @@ class pelanggan {
         $this->conn = $database;
     }
 
-    function setIdpelanggan($Idpelanggan) {
-        $this->Idpelanggan = $Idpelanggan;
+    function setIdPelanggan($IdPelanggan) {
+        $this->IdPelanggan = $IdPelanggan;
     }
 
-    function setNamapelanggan($Namapelanggan) {
-        $this->Namapelanggan = $Namapelanggan;
+    function setNamaPelanggan($NamaPelanggan) {
+        $this->NamaPelanggan = $NamaPelanggan;
     }
 
-    function setAlamatpelanggan($Alamatpelanggan) {
-        $this->Alamatpelanggan = $Alamatpelanggan;
+    function setAlamatPelanggan($AlamatPelanggan) {
+        $this->AlamatPelanggan = $AlamatPelanggan;
     }
 
-    function setNoHppelanggan($NoHppelanggan) {
-        $this->NoHppelanggan = $NoHppelanggan;
+    function setNoHpPelanggan($NoHpPelanggan) {
+        $this->NoHpPelanggan = $NoHpPelanggan;
     }
 
-    function getIdpelanggan($Idpelanggan) {
-        return $this->Idpelanggan;
+    function getIdPelanggan($IdPelanggan) {
+        return $this->IdPelanggan;
     }
 
-    function getNamapelanggan($Namapelanggan) {
-        return $this->Namapelanggan;
+    function getNamaPelanggan($NamaPelanggan) {
+        return $this->NamaPelanggan;
     }
 
-    function getAlamatpelanggan($Alamatpelanggan) {
-        return $this->Alamatpelanggan;
+    function getAlamatPelanggan($AlamatPelanggan) {
+        return $this->AlamatPelanggan;
     }
 
-    function getNoHppelanggan($NoHppelanggan) {
-        return $this->NoHppelanggan;
+    function getNoHpPelanggan($NoHpPelanggan) {
+        return $this->NoHpPelanggan;
     }
 
     function create() {
         try {
             $query = "
-                INSERT INTO pelanggan(
-                    Namapelanggan,
-                    Alamatpelanggan,
-                    NoHppelanggan
+                INSERT INTO Pelanggan(
+                    NamaPelanggan,
+                    AlamatPelanggan,
+                    NoHpPelanggan
                 )
                 VALUES (
                     ? ,
@@ -59,10 +59,10 @@ class pelanggan {
 
             $prepareDB = $this->conn->prepare($query);
 
-            $sqlAddpelanggan = $prepareDB->execute([
-                $this->Namapelanggan,
-                $this->Alamatpelanggan,
-                $this->NoHppelanggan
+            $sqlAddPelanggan = $prepareDB->execute([
+                $this->NamaPelanggan,
+                $this->AlamatPelanggan,
+                $this->NoHpPelanggan
             ]);
 
             return $this->conn->lastInsertId();
@@ -74,14 +74,14 @@ class pelanggan {
     function getList() {
         $query = "
             SELECT
-                Idpelanggan,
-                Namapelanggan,
-                Alamatpelanggan,
-                NoHppelanggan
+                IdPelanggan,
+                NamaPelanggan,
+                AlamatPelanggan,
+                NoHpPelanggan
             FROM
-                pelanggan
+                Pelanggan
             ORDER
-                BY Namapelanggan ASC
+                BY NamaPelanggan ASC
         ";
 
         $prepareDB = $this->conn->prepare($query);
@@ -95,14 +95,14 @@ class pelanggan {
         try { 
             $query = "
                 SELECT
-                    Idpelanggan,
-                    Namapelanggan,
-                    Alamatpelanggan,
-                    NoHppelanggan
+                    IdPelanggan,
+                    NamaPelanggan,
+                    AlamatPelanggan,
+                    NoHpPelanggan
                 FROM
-                    pelanggan
+                    Pelanggan
                 WHERE 
-                    Idpelanggan = ?
+                    IdPelanggan = ?
             ";
 
             $prepareDB = $this->conn->prepare($query);
@@ -119,22 +119,22 @@ class pelanggan {
     function update() {
         try {
             $query = "
-                UPDATE pelanggan SET
-                    Alamatpelanggan = ?,
-                    NoHppelanggan = ?
+                UPDATE Pelanggan SET
+                    AlamatPelanggan = ?,
+                    NoHpPelanggan = ?
                 WHERE 
-                    Idpelanggan = ?
+                    IdPelanggan = ?
             ";
 
             $prepareDB = $this->conn->prepare($query);
 
-            $pelangganUpdate = $prepareDB->execute([
-                $this->Alamatpelanggan,
-                $this->NoHppelanggan,
-                $this->Idpelanggan
+            $PelangganUpdate = $prepareDB->execute([
+                $this->AlamatPelanggan,
+                $this->NoHpPelanggan,
+                $this->IdPelanggan
             ]);
 
-            return $pelangganUpdate;
+            return $PelangganUpdate;
         } catch (Exception $e) {
             throw $e;
         }
@@ -142,13 +142,13 @@ class pelanggan {
 
     function delete($id) {
         try {
-            $query = "DELETE FROM pelanggan WHERE Idpelanggan = ?";
+            $query = "DELETE FROM Pelanggan WHERE IdPelanggan = ?";
 
             $prepareDB = $this->conn->prepare($query);
 
-            $pelangganDelete = $prepareDB->execute([$id]);
+            $PelangganDelete = $prepareDB->execute([$id]);
 
-            return $pelangganDelete;
+            return $PelangganDelete;
         } catch (Exception $e) {
             throw $e;
         }

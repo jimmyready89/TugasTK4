@@ -3,10 +3,6 @@
         include "./controller/update.php";
     }
 
-    include "../class/hakakses_pdo.php";
-    $HakAksesPDO = new HakAkses($connectionPDO);
-
-    $HakAksesList = $HakAksesPDO->getList();
     $Pelanggan = $PelangganPDO->findById($id);
 ?>
 <div class="card">
@@ -19,24 +15,24 @@
                 if($Pelanggan == null){
                 }else{
                     ?>
-                        <input type="hidden" name="IdPelanggan" value="<?= $Pelanggan['Idpelanggan'] ?>">
+                        <input type="hidden" name="IdPelanggan" value="<?= $Pelanggan['IdPelanggan'] ?>">
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="NamaPelanggan">Nama Pelanggan</label>
-                                    <input required type="text" class="form-control" id="NamaPelanggan" placeholder="Nama Pelanggan" value="<?= $Pelanggan['Namapelanggan']; ?>" readonly>
+                                    <input required type="text" class="form-control" id="NamaPelanggan" placeholder="Nama Pelanggan" value="<?= $Pelanggan['NamaPelanggan']; ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="NoHp">No Hp</label>
-                                    <input required type="telp" class="form-control" id="NoHp" placeholder="No Hp" name="NoHp" value="<?= $Pelanggan['NoHppelanggan']; ?>" required>
+                                    <input required type="telp" class="form-control" id="NoHp" placeholder="No Hp" name="NoHp" value="<?= $Pelanggan['NoHpPelanggan']; ?>" required>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="Alamat">Alamat</label>
-                                    <input required type="text" class="form-control" id="Alamat" placeholder="Alamat" name="Alamat" value="<?= $Pelanggan['Alamatpelanggan']; ?>">
+                                    <input required type="text" class="form-control" id="Alamat" placeholder="Alamat" name="Alamat" value="<?= $Pelanggan['AlamatPelanggan']; ?>">
                                 </div>
                             </div>
                         </div>

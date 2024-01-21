@@ -102,6 +102,30 @@ class Barang {
         return $getList;
     }
 
+    function getListCanBeSell() {
+        $query = "
+            SELECT
+                Barang.IdBarang,
+                Barang.NamaBarang,
+                SUM(pembelian.JumlahPembelian - ifnull(penjualan.JumlahPenjualan, 0)) as 'SisaStok'
+            FROM
+                Barang
+                LEFT JOIN pembelian ON 
+                    Barang.IdBarang = Pembelian.IdBarang
+                LEFT JOIN penjualan ON 
+                    Barang.IdBarang = Penjualan.IdBarang
+            GROUP BY Barang.IdBarang, Barang.NamaBarang
+            HAVING SisaStok > 0
+            ORDER BY NamaBarang ASC;
+        ";
+
+        $prepareDB = $this->conn->prepare($query);
+        $prepareDB->execute();
+        $getList = $prepareDB->fetchAll();
+
+        return $getList;
+    }
+
     function findById($id) {
         try { 
             $query = "

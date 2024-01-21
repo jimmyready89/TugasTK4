@@ -1,8 +1,9 @@
 <?php
 if (isset($_POST["update"])) {
     try {
-        $PelangganPDO->setNoHpPelanggan($_POST["NoHpPelanggan"]);
-        $PelangganPDO->setAlamatPelanggan($_POST["AlamatPelanggan"]);
+        $PelangganPDO->setIdPelanggan($_POST["IdPelanggan"]);
+        $PelangganPDO->setNoHpPelanggan($_POST["NoHp"]);
+        $PelangganPDO->setAlamatPelanggan($_POST["Alamat"]);
         $PelangganPDO->update();
         ?>
             <p class="text-success">

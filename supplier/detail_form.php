@@ -3,9 +3,6 @@
         include "./controller/update.php";
     }
 
-    include "../class/hakakses_pdo.php";
-    $HakAksesPDO = new HakAkses($connectionPDO);
-
     $HakAksesList = $HakAksesPDO->getList();
     $Supplier = $SupplierPDO->findById($id);
 ?>
@@ -19,24 +16,24 @@
                 if($Supplier == null){
                 }else{
                     ?>
-                        <input type="hidden" name="IdSupplier" value="<?= $Supplier['Idpelanggan'] ?>">
+                        <input type="hidden" name="IdSupplier" value="<?= $Supplier['IdSupplier'] ?>">
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="NamaSupplier">Nama Supplier</label>
-                                    <input required type="text" class="form-control" id="NamaSupplier" placeholder="Nama Supplier" value="<?= $Supplier['Namapelanggan']; ?>" readonly>
+                                    <input required type="text" class="form-control" id="NamaSupplier" placeholder="Nama Supplier" value="<?= $Supplier['NamaSupplier']; ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="NoHp">No Hp</label>
-                                    <input required type="telp" class="form-control" id="NoHp" placeholder="No Hp" name="NoHp" value="<?= $Supplier['NoHppelanggan']; ?>" required>
+                                    <input required type="telp" class="form-control" id="NoHp" placeholder="No Hp" name="NoHp" value="<?= $Supplier['NoHpSupplier']; ?>" required>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="Alamat">Alamat</label>
-                                    <input required type="text" class="form-control" id="Alamat" placeholder="Alamat" name="Alamat" value="<?= $Supplier['Alamatpelanggan']; ?>">
+                                    <input required type="text" class="form-control" id="Alamat" placeholder="Alamat" name="Alamat" value="<?= $Supplier['AlamatSupplier']; ?>">
                                 </div>
                             </div>
                         </div>

@@ -126,6 +126,33 @@ class Barang {
         return $getList;
     }
 
+    function getListProfitSellPerItem() {
+        $query = "
+            SELECT
+                Barang.IdBarang,
+                Barang.NamaBarang,
+                SUM(pembelian.JumlahPembelian) as 'ItemTerBeli',
+                SUM(pembelian.JumlahPembelian * pembelian.HargaBeli) as 'TotalPembelian',
+                SUM(ifnull(penjualan.JumlahPenjualan, 0)) as 'ItemTerTerjual',
+                SUM(ifnull(penjualan.JumlahPenjualan, 0) * ifnull(penjualan.HargaJual, 0)) as 'TotalPenjualan',
+                SUM(ifnull(penjualan.JumlahPenjualan, 0) * ifnull(penjualan.HargaJual, 0) - pembelian.JumlahPembelian * pembelian.HargaBeli) as 'ProfitOrLoss'
+            FROM
+                Barang
+                LEFT JOIN pembelian ON 
+                    Barang.IdBarang = Pembelian.IdBarang
+                LEFT JOIN penjualan ON 
+                    Barang.IdBarang = Penjualan.IdBarang
+            GROUP BY Barang.IdBarang, Barang.NamaBarang
+            ORDER BY NamaBarang ASC;
+        ";
+
+        $prepareDB = $this->conn->prepare($query);
+        $prepareDB->execute();
+        $getList = $prepareDB->fetchAll();
+
+        return $getList;
+    }
+
     function findById($id) {
         try { 
             $query = "

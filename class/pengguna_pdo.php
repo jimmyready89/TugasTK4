@@ -236,5 +236,19 @@ class Pengguna {
             throw $e;
         }
     }
+
+    function login($id) {
+        try {
+            $query = "DELETE FROM Pengguna WHERE IdPengguna = ?";
+
+            $prepareDB = $this->conn->prepare($query);
+
+            $PenggunaDelete = $prepareDB->execute([$id]);
+
+            return $PenggunaDelete;
+        } catch (Exception $e) {
+            throw $e;
+        }
+    }
 }
 ?>

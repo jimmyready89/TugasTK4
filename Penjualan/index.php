@@ -3,7 +3,7 @@
     include "../session_autentiocation.php";
     include "../database_connection.php";
     include "../class/penjualan_pdo.php";
-
+    
     $PenjualanPDO = new Penjualan($connectionPDO);
 ?>
 <!DOCTYPE html>
@@ -31,6 +31,7 @@
                     include "./controller/delete.php";
                 }
 
+                include "combination.php";
                 include "tabel.php";
             }
         ?>

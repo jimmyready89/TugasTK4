@@ -107,7 +107,7 @@ class Penjualan {
                 Left Join Barang on
                     Barang.IdBarang = Penjualan.IdBarang
             ORDER
-                BY Penjualan.IdPenjualan ASC
+                BY Penjualan.IdPenjualan desc
         ";
 
         $prepareDB = $this->conn->prepare($query);
@@ -125,9 +125,12 @@ class Penjualan {
                     JumlahPenjualan,
                     HargaJual,
                     IdBarang,
-                    IdPelanggan
+                    IdPelanggan,
+                    Pengguna.NamaPengguna
                 FROM
                     Penjualan
+                    left join Pengguna on
+                        Penjualan.IdPengguna = Pengguna.IdPengguna
                 WHERE 
                     IdPenjualan = ?
             ";

@@ -126,6 +126,63 @@ class Barang {
         return $getList;
     }
 
+    function getCombinationItem() {
+        $Combination = [];
+
+        $query = "
+            SELECT
+                Barang.IdBarang,
+                Barang.NamaBarang,
+                SUM(
+                    pembelian.JumlahPembelian - IFNULL(penjualan.JumlahPenjualan, 0)
+                ) AS 'SisaStok',
+                Pembelian2.HargaBeli as 'HargaJual'
+            FROM Barang
+            LEFT JOIN pembelian ON 
+                Barang.IdBarang = Pembelian.IdBarang
+            LEFT JOIN penjualan ON 
+                Barang.IdBarang = Penjualan.IdBarang
+            LEFT JOIN(
+                SELECT IdBarang,
+                    MAX(Pembelian.IdPembelian) AS 'IdPembelian'
+                FROM
+                    Pembelian
+                GROUP BY
+                    Pembelian.IdBarang
+            ) AS PembelianTerakhir
+                ON 
+                    Barang.IdBarang = PembelianTerakhir.IdBarang
+            LEFT JOIN Pembelian Pembelian2
+                ON
+                    Pembelian2.IdPembelian = PembelianTerakhir.IdPembelian
+            GROUP BY Barang.IdBarang, Barang.NamaBarang
+            HAVING SisaStok > 50
+            ORDER BY SisaStok DESC
+            LIMIT 6;
+        ";
+
+        $prepareDB = $this->conn->prepare($query);
+        $prepareDB->execute();
+        $getList = $prepareDB->fetchAll();
+
+        $TotalItem = count($getList);
+        $TotalCombination  = $TotalItem - ($TotalItem % 2);
+
+        for ($IndexItem = 0; $IndexItem < $TotalCombination ; $IndexItem += 2) { 
+            $Item1 = $getList[$IndexItem];
+            $Item2 = $getList[$IndexItem + 1];
+
+            $UniqKey = hash("sha1", json_encode($Item1) . json_encode($Item2));
+
+            $Combination[$UniqKey] = [
+                $Item1,
+                $Item2
+            ];
+        }
+
+        return $Combination;
+    }
+
     function getListProfitSellPerItem() {
         $query = "
             SELECT

@@ -237,15 +237,29 @@ class Pengguna {
         }
     }
 
-    function login($id) {
-        try {
-            $query = "DELETE FROM Pengguna WHERE IdPengguna = ?";
+    function login() {
+        try { 
+            $query = "
+                SELECT
+                    IdPengguna,
+                    NamaPengguna
+                FROM
+                    Pengguna
+                WHERE 
+                    NamaPengguna = ?
+                    and Password = ?
+            ";
 
             $prepareDB = $this->conn->prepare($query);
 
-            $PenggunaDelete = $prepareDB->execute([$id]);
+            $prepareDB->execute([
+                $this->NamaPengguna,
+                $this->Password
+            ]);
 
-            return $PenggunaDelete;
+            $findById = $prepareDB->fetchAll();
+
+            return $findById[0] ?? null;
         } catch (Exception $e) {
             throw $e;
         }

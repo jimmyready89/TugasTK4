@@ -7,6 +7,15 @@
 <div class="card">
     <div class="card-header">
         Edit Barang
+        <?php
+            if($Barang != null){
+                ?>
+                    <span style="float:right">
+                        Dibuat Oleh : <?= $Barang["NamaPengguna"] ?>
+                    </span>
+                <?php
+            }
+        ?>
     </div>
     <div class="card-body">
         <form class="form-horizontal" method="post" action="">

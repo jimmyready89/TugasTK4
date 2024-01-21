@@ -4,7 +4,7 @@ try {
     $PenjualanPDO->setIdPelanggan($_POST["IdPelanggan"]);
     $PenjualanPDO->setJumlahPenjualan($_POST["JumlahPenjualan"]);
     $PenjualanPDO->setHargaJual($_POST["HargaJual"]);
-    $PenjualanPDO->setIdPengguna(1);
+    $PenjualanPDO->setIdPengguna($_SESSION['id']);
     $IdPenjualan = $PenjualanPDO->create();
     header ("location:./index.php?id={$IdPenjualan}");
     die();

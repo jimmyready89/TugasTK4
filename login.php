@@ -1,5 +1,29 @@
 <?php
 include "session_start.php";
+include "database_connection.php";
+include "class/pengguna_pdo.php";
+
+$Username = $_POST["Username"] ?? "";
+$Password = $_POST["password"] ?? "";
+if ($Username != "" && $Password != "") {
+    $Pengguna = new Pengguna($connectionPDO);
+    $Pengguna->setNamaPengguna($Username);
+    $Pengguna->setPassword($Password);
+
+    $Login = $Pengguna->login();
+    if ($Login != null) {
+        $_SESSION['nama'] = $Login["NamaPengguna"];
+        $_SESSION['id'] = $Login["IdPengguna"];
+        header ("location:index.php");
+        die();
+    }else{
+        ?>
+            <p class="text-danger">
+                username or password invalid
+            </p>
+        <?php
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,12 +40,12 @@ include "session_start.php";
                 <form method="post">
                     <h2 class="mb-3">Login</h2>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Username</label>
-                        <input type="email" class="form-control" id="Username" placeholder="username">
+                        <label for="Username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="Username" name="Username" placeholder="username" autocomplete="off" value="">
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="password">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="password" autocomplete="off" value="">
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
                 </form>

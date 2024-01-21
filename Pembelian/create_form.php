@@ -5,9 +5,7 @@
 
     include "../class/barang_pdo.php";
     $BarangPDO = new Barang($connectionPDO);
-
     $BarangList = $BarangPDO->getList();
-
     
     include "../class/supplier_pdo.php";
     $SupplierPDO = new Supplier($connectionPDO);

@@ -5,13 +5,10 @@
 
     include "../class/barang_pdo.php";
     $BarangPDO = new Barang($connectionPDO);
-
     $BarangList = $BarangPDO->getList();
 
-    
     include "../class/pelanggan_pdo.php";
     $PelangganPDO = new Pelanggan($connectionPDO);
-
     $PelangganList = $PelangganPDO->getList();
 
     $Penjualan = $PenjualanPDO->findById($_GET["id"]);
@@ -19,6 +16,15 @@
 <div class="card">
     <div class="card-header">
         Form Edit Penjualan
+        <?php
+            if($Penjualan != null){
+                ?>
+                    <span style="float:right">
+                        Dibuat Oleh : <?= $Penjualan["NamaPengguna"] ?>
+                    </span>
+                <?php
+            }
+        ?>
     </div>
     <div class="card-body">
         <form class="form-horizontal" method="post" action="">

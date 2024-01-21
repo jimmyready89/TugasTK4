@@ -5,13 +5,10 @@
 
     include "../class/barang_pdo.php";
     $BarangPDO = new Barang($connectionPDO);
-
     $BarangList = $BarangPDO->getListCanBeSell();
-
     
     include "../class/pelanggan_pdo.php";
     $PelangganPDO = new Pelanggan($connectionPDO);
-
     $PelangganList = $PelangganPDO->getList();
 ?>
 <div class="card">

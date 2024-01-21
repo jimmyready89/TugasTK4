@@ -34,7 +34,7 @@
                                                 <?= $data["JumlahPenjualan"] ?>
                                             </td>
                                             <td>
-                                                <?= $data["HargaJual"] ?>
+                                                <?= number_format($data["HargaJual"]) ?>
                                             </td>
                                             <td>
                                                 <a href="./index.php?id=<?= $data["IdPenjualan"] ?>">
